@@ -1,12 +1,12 @@
 // src/Saiyan.js
 
 
-class Saiyan {
-
+class Saiyan extends Luchador{
   /**
    * Transforma al Saiyan en Super Saiyan, aumentando sus atributos.
    */
   transformar() {
+    
   }
 
   /**

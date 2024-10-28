@@ -2,7 +2,7 @@
 
 const Luchador = require('./Luchador');
 
-class Earthling {
+class Earthling extends Luchador{
 
   /**
    * Usa una técnica especial para aumentar el ataque.

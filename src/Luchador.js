@@ -2,7 +2,13 @@
 
 class Luchador {
     // Implementa el constructor y los métodos necesarios
-  
+  constructor(nombre, velocidad, ataque, defensa, salud){
+    this.nombre=nombre;
+    this.velocidad=velocidad;
+    this.ataque=ataque;
+    this.defensa=defensa;
+    this.salud=salud;
+  }
   
     /**
      * Realiza un ataque contra un oponente.
@@ -39,7 +45,7 @@ class Luchador {
      * @returns {boolean} - `true` si la salud es mayor a 0, `false` en caso contrario.
      */
     estaVivo() {
-     
+      
     }
   }
   
