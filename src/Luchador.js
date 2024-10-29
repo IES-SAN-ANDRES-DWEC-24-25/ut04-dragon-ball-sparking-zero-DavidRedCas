@@ -2,7 +2,13 @@
 
 class Luchador {
     // Implementa el constructor y los métodos necesarios
-  
+  constructor(nombre, velocidad, ataque, defensa, salud){
+    this.nombre=nombre;
+    this.velocidad=velocidad;
+    this.ataque=ataque;
+    this.defensa=defensa;
+    this.salud=salud;
+  }
   
     /**
      * Realiza un ataque contra un oponente.
@@ -11,7 +17,7 @@ class Luchador {
      */
     atacar(oponente) {
       // Decidir si el ataque es esquivado
-     
+      
   
       // Calcular daño
       
@@ -31,7 +37,7 @@ class Luchador {
      * @param {number} danio - Cantidad de daño recibido.
      */
     recibirDanio(danio) {
-      
+      salud=salud-danio;
     }
   
     /**
@@ -39,7 +45,11 @@ class Luchador {
      * @returns {boolean} - `true` si la salud es mayor a 0, `false` en caso contrario.
      */
     estaVivo() {
-     
+      if (this.salud>0) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
   
