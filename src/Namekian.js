@@ -4,13 +4,16 @@
 
 const Luchador = require('./Luchador');
 
-class Namekian {
+class Namekian extends Luchador{
+  constructor(salud){
+    super(salud);
+  }
 
   /**
    * Regenera salud si aún no lo ha hecho en la batalla.
    */
   regenerarSalud() {
-   
+    salud=this.salud;
   }
 }
 
