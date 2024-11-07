@@ -5,13 +5,18 @@ const Luchador = require('./Luchador');
 class Earthling extends Luchador{
   constructor(ataque){
     super(ataque);
+    let tecnicaUsada=false;
   }
 
   /**
    * Usa una técnica especial para aumentar el ataque.
    */
   usarTecnicaEspecial() {
-    this.ataque=this.ataque*1.20;
+    if (tecnicaUsada==false) {
+      ataque=this.ataque*1.4;
+      
+      tecnicaUsada=true;
+    }
   }
 }
 
