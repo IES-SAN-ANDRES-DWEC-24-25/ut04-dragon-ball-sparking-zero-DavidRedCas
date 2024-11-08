@@ -11,7 +11,11 @@ class Luchador {
   }
 
   esquivar(){
-
+    if (Math.random()<0.2) {
+      return true;
+    } else{
+      return false;
+    }
   }
   
     /**
@@ -21,35 +25,39 @@ class Luchador {
      */
     atacar(oponente) {
       // Decidir si el ataque es esquivado
+      if (oponente.esquivar()==true) {
+        daño=0;
+        console.log(oponente.nombre," esquivó el ataque de ",this.nombre,"!");
+      }
   
       // Calcular daño
+      daño=this.ataque-oponente.defensa;
       if (oponente.defensa > this.ataque){
          daño = this.ataque*0.9;
-      }
-      else {
+      }else {
         daño = this.ataque;
       }
-   
+      
       // Asegurar que el daño no sea negativo
-      if (danio<0) {
-        danio
+      if (daño<0) {
+        daño=0;
       }
   
       // Aplicar daño al oponente
-     
+      oponente.salud-=daño;
   
       // Retornar resultado del ataque
-      return this.ataque;
+      return console.log(this.nombre," ataca a ",oponente.nombre," y causa ",daño," de daño.");;
     }
   
     /**
      * Aplica daño a la salud del luchador.
      * @param {number} danio - Cantidad de daño recibido.
      */
-    recibirDanio(danio) {
-        salud=salud-danio;
-        if (salud<0) {
-          salud=0;
+    recibirDanio(daño) {
+        this.salud-=daño;
+        if (this.salud<0) {
+          this.salud=0;
         }
     }
   

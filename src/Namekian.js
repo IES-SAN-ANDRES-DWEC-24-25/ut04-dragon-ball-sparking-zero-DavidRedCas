@@ -7,17 +7,17 @@ const Luchador = require('./Luchador');
 class Namekian extends Luchador{
   constructor(salud){
     super(salud);
-    let regenerado=false;
+    this.regenerado=false;
   }
 
   /**
    * Regenera salud si aún no lo ha hecho en la batalla.
    */
   regenerarSalud() {
-    if (regenerado==false && salud<50) {
-      salud=this.salud+30;
+    if (this.regenerado==false && this.salud<50) {
+      this.salud+=30;
 
-      regenerado=true;
+      this.regenerado=true;
     }
   }
 }
