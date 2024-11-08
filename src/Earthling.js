@@ -3,8 +3,8 @@
 const Luchador = require('./Luchador');
 
 class Earthling extends Luchador{
-  constructor(ataque){
-    super(ataque);
+  constructor(nombre, velocidad, ataque, defensa, salud = 100){
+    super(nombre, velocidad, ataque, defensa, salud);
     this.tecnicaUsada=false;
   }
 

@@ -5,8 +5,8 @@
 const Luchador = require('./Luchador');
 
 class Namekian extends Luchador{
-  constructor(salud){
-    super(salud);
+  constructor(nombre, velocidad, ataque, defensa, salud = 100){
+    super(nombre, velocidad, ataque, defensa, salud);
     this.regenerado=false;
   }
 

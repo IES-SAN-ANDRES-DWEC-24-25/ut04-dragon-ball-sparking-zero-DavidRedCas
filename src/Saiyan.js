@@ -2,8 +2,8 @@
 const Luchador = require('../src/Luchador');
 
 class Saiyan extends Luchador{
-  constructor(ataque, defensa, velocidad){
-    super(ataque, defensa, velocidad);
+  constructor(nombre, velocidad, ataque, defensa, salud = 100){
+    super(nombre, velocidad, ataque, defensa, salud);
     this.esSuperSaiyan=false;
   }
 
