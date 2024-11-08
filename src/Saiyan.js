@@ -11,7 +11,7 @@ class Saiyan extends Luchador{
    * Transforma al Saiyan en Super Saiyan, aumentando sus atributos.
    */
   transformar() {
-    if (this.esSuperSaiyan==false) {
+    if (!this.esSuperSaiyan) {
       this.ataque*=1.5;
       this.velocidad*=1.3;
       this.defensa*=1.2;
@@ -24,7 +24,7 @@ class Saiyan extends Luchador{
    * Revertir la transformación de Super Saiyan.
    */
   revertirTransformacion() {
-    if (this.esSuperSaiyan==true) {
+    if (this.esSuperSaiyan) {
       this.ataque/=1.5;
       this.velocidad/=1.3;
       this.defensa/=1.2;

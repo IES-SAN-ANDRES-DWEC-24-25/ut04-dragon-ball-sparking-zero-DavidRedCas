@@ -1,5 +1,5 @@
 // src/simularBatalla.js
-
+const Saiyan = require('./Saiyan');
 /**
  * Simula una batalla entre dos luchadores.
  * @param {Luchador} luchador1 - Primer luchador.
@@ -31,7 +31,7 @@ function simularBatalla(luchador1, luchador2) {
     }
   }
 
-  console.log(`${atacante.nombre} tiene mayor velocidad y ataca primero.`);
+  console.log(`${atacante.nombre} tiene mayor velocidad y ataca primero.\n`);
 
   // Simular turnos hasta que uno de los luchadores pierda
   while (atacante.estaVivo() && oponente.estaVivo()) {
@@ -40,7 +40,7 @@ function simularBatalla(luchador1, luchador2) {
     console.log(`${atacante.nombre} ataca a ${oponente.nombre} con ${daño}.`);
     console.log(`${oponente.nombre} tiene ${oponente.salud} de salud restante.`);
     }
-    
+
     if(atacante.estaVivo()){
     daño=oponente.atacar(atacante);
     console.log(`${oponente.nombre} ataca a ${atacante.nombre} con ${daño}.`);
@@ -55,7 +55,7 @@ function simularBatalla(luchador1, luchador2) {
     ganador=atacante;
   }
 
-  console.log(`El ganador de la batalla es ${ganador.nombre}!\n`);
+  console.log(`\nEl ganador de la batalla es ${ganador.nombre}!\n`);
   return ganador;
 }
 
