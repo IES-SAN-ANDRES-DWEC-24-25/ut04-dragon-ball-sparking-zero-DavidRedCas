@@ -27,13 +27,13 @@ class Luchador {
       // Decidir si el ataque es esquivado
       if (oponente.esquivar()==true) {
         daño=0;
-        console.log(oponente.nombre," esquivó el ataque de ",this.nombre,"!");
+        console.log(`${oponente.nombre} esquivó el ataque de ${this.nombre}!`);
       }
   
       // Calcular daño
-      daño=this.ataque-oponente.defensa;
+      let daño=this.ataque-oponente.defensa;
       if (oponente.defensa > this.ataque){
-         daño = this.ataque*0.9;
+        daño = this.ataque*0.9;
       }else {
         daño = this.ataque;
       }
@@ -47,12 +47,12 @@ class Luchador {
       oponente.salud-=daño;
   
       // Retornar resultado del ataque
-      return console.log(this.nombre," ataca a ",oponente.nombre," y causa ",daño," de daño.");;
+      return console.log(`${this.nombre} ataca a ${oponente.nombre} y causa ${daño} de daño.`);
     }
   
     /**
      * Aplica daño a la salud del luchador.
-     * @param {number} danio - Cantidad de daño recibido.
+     * @param {number} daño - Cantidad de daño recibido.
      */
     recibirDanio(daño) {
         this.salud-=daño;
