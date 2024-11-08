@@ -20,5 +20,3 @@ const luchadores = [
 // Crear y iniciar el torneo
 const torneo = new Torneo(luchadores);
 const campeon = torneo.iniciar();
-
-console.log(`${campeon.nombre} ha ganado el torneo!`);

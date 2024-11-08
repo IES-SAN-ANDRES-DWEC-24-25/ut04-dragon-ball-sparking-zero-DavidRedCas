@@ -34,6 +34,7 @@ class Torneo {
         const luchador1 = participantes[i];
         const luchador2 = participantes[i + 1];
         const ganador = simularBatalla(luchador1, luchador2);
+        ganador.salud=100;
         ganadores.push(ganador);
       }
 
@@ -42,7 +43,8 @@ class Torneo {
     }
 
     const campeón = participantes[0];
-    console.log(`El campeón del torneo es ${campeón.nombre}!\n`);
+    console.log(`--- Ganador ---`);
+    console.log(`\nEl campeón del torneo es ${campeón.nombre}!\n`);
     return campeón;
   }
 }

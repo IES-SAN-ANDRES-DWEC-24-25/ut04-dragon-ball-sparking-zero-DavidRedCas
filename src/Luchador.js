@@ -24,6 +24,7 @@ esquivar(){
    * @returns {Object} - Resultado del ataque.
    */
   atacar(oponente) {
+    let daño=this.ataque-oponente.defensa;
     // Decidir si el ataque es esquivado
     if (oponente.esquivar()==true) {
       daño=0;
@@ -31,11 +32,12 @@ esquivar(){
     }
 
     // Calcular daño
-    let daño=this.ataque-oponente.defensa;
-    if (oponente.defensa > this.ataque){
-      daño = this.ataque*0.9;
-    }else {
-      daño = this.ataque;
+    if (oponente.esquivar()==false) {
+      if (oponente.defensa > this.ataque){
+        daño = this.ataque*0.9;
+      }else {
+        daño = this.ataque;
+      }
     }
     
     // Asegurar que el daño no sea negativo
@@ -47,7 +49,7 @@ esquivar(){
     oponente.salud-=daño;
 
     // Retornar resultado del ataque
-    return console.log(`${this.nombre} ataca a ${oponente.nombre} y causa ${daño} de daño.`);
+    return daño;
   }
 
   /**
@@ -59,6 +61,7 @@ esquivar(){
       if (this.salud<0) {
         this.salud=0;
       }
+      return console.log(`${this.nombre} ataca a ${oponente.nombre} y causa ${daño} de daño.`);
   }
 
   /**

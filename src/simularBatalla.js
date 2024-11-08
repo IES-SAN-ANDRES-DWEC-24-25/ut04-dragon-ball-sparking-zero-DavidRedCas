@@ -12,17 +12,17 @@ function simularBatalla(luchador1, luchador2) {
   
 
   // Determinar quién ataca primero basado en la velocidad
-  if (luchador1.velocidad>luchador2.velocidad) {
-    atacante=luchador1;
-    oponente=luchador2;
-  }else{
-    atacante=luchador2;
-    oponente=luchador1;
-  }
-    // Si la velocidad es igual, elegir al azar
   if (luchador1.velocidad==luchador2.velocidad) {
-    numAzar=Math.floor(Math.random()*2);
-    if (numAzar==0) {
+    numAzar=Math.random();
+    if (numAzar<0.5) {
+      atacante=luchador1;
+      oponente=luchador2;
+    } else {
+      atacante=luchador2;
+      oponente=luchador1;
+    }
+  } else{
+    if (luchador1.velocidad>luchador2.velocidad) {
       atacante=luchador1;
       oponente=luchador2;
     } else {
@@ -34,14 +34,20 @@ function simularBatalla(luchador1, luchador2) {
   console.log(`${atacante.nombre} tiene mayor velocidad y ataca primero.`);
 
   // Simular turnos hasta que uno de los luchadores pierda
-  while (luchador1.salud>0 && luchador2.salud>0) {
-    atacante.atacar(oponente);
+  while (atacante.salud>0 && oponente.salud>0) {
+    if(oponente.estaVivo()){
+    daño=atacante.atacar(oponente);
     oponente.recibirDanio(daño);
     console.log(`${oponente.nombre} tiene ${oponente.salud} de salud restante.`);
-    [atacante, oponente] = [oponente, atacante];
+    }
+    if(atacante.estaVivo()){
+    daño=oponente.atacar(atacante);
+    atacante.recibirDanio(daño);
+    console.log(`${atacante.nombre} tiene ${atacante.salud} de salud restante.`);
+    }
   }
   
-  const ganador = null;
+  let ganador = null;
   if (atacante.salud<=0) {
     ganador=oponente;
   } else {
