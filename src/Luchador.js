@@ -34,7 +34,7 @@ esquivar(){
     // Calcular daño
     if (!oponente.esquivar()) {
       if (oponente.defensa > this.ataque){
-        daño = this.ataque*0.9;
+        daño = Math.round(this.ataque*0.9);
       }else {
         daño = this.ataque;
       }

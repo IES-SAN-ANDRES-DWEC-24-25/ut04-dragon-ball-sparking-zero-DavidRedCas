@@ -37,14 +37,12 @@ function simularBatalla(luchador1, luchador2) {
   while (atacante.estaVivo() && oponente.estaVivo()) {
     if(oponente.estaVivo()){
     daño=atacante.atacar(oponente);
-    //oponente.recibirDanio(daño);
     console.log(`${atacante.nombre} ataca a ${oponente.nombre} con ${daño}.`);
     console.log(`${oponente.nombre} tiene ${oponente.salud} de salud restante.`);
-
     }
+    
     if(atacante.estaVivo()){
     daño=oponente.atacar(atacante);
-    //atacante.recibirDanio(daño);
     console.log(`${oponente.nombre} ataca a ${atacante.nombre} con ${daño}.`);
     console.log(`${atacante.nombre} tiene ${atacante.salud} de salud restante.`);
     }
