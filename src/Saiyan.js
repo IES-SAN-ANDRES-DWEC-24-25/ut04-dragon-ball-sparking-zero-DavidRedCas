@@ -15,7 +15,6 @@ class Saiyan extends Luchador{
       this.ataque*=1.5;
       this.velocidad*=1.3;
       this.defensa*=1.2;
-
       this.esSuperSaiyan=true;
     }
   }
@@ -30,6 +29,16 @@ class Saiyan extends Luchador{
       this.defensa/=1.2;
   
       this.esSuperSaiyan=false;
+    }
+  }
+
+  intentarHabilidad() {
+    super.intentarHabilidad();
+    if (this.salud < 50 && !this.intentoHabilidad) {
+      if (Math.random() < 0.5) {
+        this.transformar();
+        console.log(`${this.nombre} se transforma en Super Saiyan y aumenta sus habilidades!`);
+      }
     }
   }
 }

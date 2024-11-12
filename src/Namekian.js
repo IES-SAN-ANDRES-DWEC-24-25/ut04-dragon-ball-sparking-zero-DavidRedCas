@@ -16,8 +16,17 @@ class Namekian extends Luchador{
   regenerarSalud() {
     if (this.regenerado==false && this.salud<50) {
       this.salud+=30;
-
       this.regenerado=true;
+    }
+  }
+
+  intentarHabilidad() {
+    super.intentarHabilidad();
+    if (this.salud < 50 && !this.intentoHabilidad) {
+      if (Math.random() < 0.5) {
+        this.regenerarSalud();
+        console.log(`${this.nombre} activa su habilidad de regeneración y recupera 30 de salud!`);
+      }
     }
   }
 }

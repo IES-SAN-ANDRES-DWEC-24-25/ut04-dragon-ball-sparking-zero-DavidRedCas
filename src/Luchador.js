@@ -8,6 +8,8 @@ constructor(nombre, velocidad, ataque, defensa, salud = 100){
   this.ataque=ataque;
   this.defensa=defensa;
   this.salud=salud;
+
+  this.intentoHabilidad = false;
 }
 
 esquivar(){
@@ -24,7 +26,7 @@ esquivar(){
    * @returns {Object} - Resultado del ataque.
    */
   atacar(oponente) {
-    let daño=this.ataque-oponente.defensa;
+    let daño=Math.round(this.ataque-(oponente.defensa*0.75));
     // Decidir si el ataque es esquivado
     if (oponente.esquivar()) {
       daño=0;
@@ -34,9 +36,9 @@ esquivar(){
     // Calcular daño
     if (!oponente.esquivar()) {
       if (oponente.defensa > this.ataque){
-        daño = Math.round(this.ataque*0.9);
+        daño = Math.round((this.ataque*0.25)*0.9);
       }else {
-        daño = this.ataque;
+        daño = Math.round(this.ataque*0.25);
       }
     }
     
@@ -74,6 +76,12 @@ esquivar(){
       return true;
     } else {
       return false;
+    }
+  }
+
+  intentarHabilidad() {
+    if (this.salud < 50 && !this.intentoHabilidad) {
+      this.intentoHabilidad = true;
     }
   }
 }

@@ -9,7 +9,8 @@ const Saiyan = require('./Saiyan');
 function simularBatalla(luchador1, luchador2) {
   console.log(`\nComienza la batalla entre ${luchador1.nombre} y ${luchador2.nombre}!`);
 
-  
+  luchador1.intentoHabilidad = false;
+  luchador2.intentoHabilidad = false;
 
   // Determinar quién ataca primero basado en la velocidad
   if (luchador1.velocidad===luchador2.velocidad) {
@@ -35,16 +36,24 @@ function simularBatalla(luchador1, luchador2) {
 
   // Simular turnos hasta que uno de los luchadores pierda
   while (atacante.estaVivo() && oponente.estaVivo()) {
+    oponente.intentarHabilidad();
     if(oponente.estaVivo()){
-    daño=atacante.atacar(oponente);
-    console.log(`${atacante.nombre} ataca a ${oponente.nombre} con ${daño}.`);
-    console.log(`${oponente.nombre} tiene ${oponente.salud} de salud restante.`);
+      daño=atacante.atacar(oponente);
+      console.log(`${atacante.nombre} ataca a ${oponente.nombre} con ${daño}.`);
+      console.log(`${oponente.nombre} tiene ${oponente.salud} de salud restante.`);
+      if (!oponente.estaVivo()){
+        break;
+      } 
     }
 
+    atacante.intentarHabilidad();
     if(atacante.estaVivo()){
-    daño=oponente.atacar(atacante);
-    console.log(`${oponente.nombre} ataca a ${atacante.nombre} con ${daño}.`);
-    console.log(`${atacante.nombre} tiene ${atacante.salud} de salud restante.`);
+      daño=oponente.atacar(atacante);
+      console.log(`${oponente.nombre} ataca a ${atacante.nombre} con ${daño}.`);
+      console.log(`${atacante.nombre} tiene ${atacante.salud} de salud restante.`);
+      if (!atacante.estaVivo()){
+        break;
+      } 
     }
   }
   
